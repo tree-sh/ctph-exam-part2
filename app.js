@@ -13,10 +13,10 @@ const readline = require('readline').createInterface({
   function compute(input)
   {
     const inputArray = input.split(" ");
-    const operation = inputArray.shift();
-
-    const num1 = parseFloat(inputArray.shift());
-    const num2 = inputArray[0] ? parseFloat(inputArray.shift()) : null;
+    const [operation, operand1, operand2] = inputArray;
+    const num1 = parseFloat(operand1);
+    const num2 = operand2 ? parseFloat(operand2) : operand2;
+    
       if(operation === "add")
       {
         result = !num2 ? result + num1 : num1 + num2;
@@ -48,9 +48,9 @@ const readline = require('readline').createInterface({
   function compute2(input)
   {
     const inputArray = input.split(" ");
-    const operation = inputArray.shift();
-    const num1 = parseFloat(inputArray.shift());
-    const num2 = inputArray[0] ? parseFloat(inputArray.shift()) : null;
+    const [operation, operand1, operand2] = inputArray;
+    const num1 = parseFloat(operand1);
+    const num2 = operand2 ? parseFloat(operand2) : operand2;
 
     result = !num2 ? eval(result + operatorMap.get(operation) + num1) : eval(num1 + operatorMap.get(operation) + num2);
     console.log(result);
